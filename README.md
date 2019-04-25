@@ -1,5 +1,7 @@
 # UnityUGUIMemberGenerator
  영어 Readme 작성필요
+ English Readme not ready.
+ 
  
  This is UI Member-Variable Auto Generator.
   
@@ -9,6 +11,9 @@
  ## 설명
  
  * 다음과 같이 멤버스크립트를 자동생성 할 수 있습니다.
+  
+  코드 생성을 원하는 오브젝트를 우클릭후 Run Generator 를 클릭하면 하위 오브젝트들이 가지고있는
+  모든 MaskableGraphic을 탐색하여 스크립트에 복사-붙여넣기 가능한 수준의 멤버 변수 코드로 생성합니다.
   
 ![Instruction-1](https://github.com/shlifedev/UnityUGUIMemberGenerator/blob/master/ScreenShots/inst1.gif)
 * 다음과 같이 속성을 지정할 수 있습니다.
