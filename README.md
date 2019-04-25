@@ -7,11 +7,15 @@
  UI컴퍼넌트를 대상으로 작동합니다. 
  
  ## 설명
-  다음과 같이 멤버스크립트를 자동생성 할 수 있습니다.
+ 
+  *다음과 같이 멤버스크립트를 자동생성 할 수 있습니다.
+  
 ![Instruction-1](https://github.com/shlifedev/UnityUGUIMemberGenerator/blob/master/ScreenShots/inst1.gif)
-  다음과 같이 속성을 지정할 수 있습니다.
+  *다음과 같이 속성을 지정할 수 있습니다.
+  
 ![Instruction-1](https://github.com/shlifedev/UnityUGUIMemberGenerator/blob/master/ScreenShots/inst2.gif)
-  다음과 같이 속성을 지정할 수 있습니다.
+  *다음과 같이 속성을 지정할 수 있습니다.
+  
 ![Instruction-1](https://github.com/shlifedev/UnityUGUIMemberGenerator/blob/master/ScreenShots/inst3.gif)
 
 
