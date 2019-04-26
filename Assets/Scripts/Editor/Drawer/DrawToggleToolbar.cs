@@ -22,9 +22,7 @@ namespace UnityToolbarExtender
 		{
 			m_enabled = EditorPrefs.GetBool("SceneViewFocuser", false);
 			EditorApplication.playModeStateChanged += OnPlayModeChanged;
-			EditorApplication.pauseStateChanged += OnPauseChanged;
-
-
+			EditorApplication.pauseStateChanged += OnPauseChanged; 
             ToolbarExtender.LeftToolbarGUI.Add(OnToolbarGUI); 
         }
 
@@ -42,7 +40,15 @@ namespace UnityToolbarExtender
 			if (Enabled && obj == PlayModeStateChange.EnteredPlayMode)
 			{
 				EditorWindow.FocusWindowIfItsOpen<SceneView>();
-			}
+                if (obj == PlayModeStateChange.EnteredPlayMode)
+                {
+                    ToolbarExtender.LeftToolbarGUI.Remove(OnToolbarGUI);
+                }
+                if (obj == PlayModeStateChange.EnteredEditMode)
+                {
+                    ToolbarExtender.LeftToolbarGUI.Add(OnToolbarGUI);
+                }
+            }
 		}
 
         static void OnToolbarGUI()

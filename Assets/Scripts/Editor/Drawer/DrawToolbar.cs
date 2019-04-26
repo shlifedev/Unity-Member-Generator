@@ -3,16 +3,46 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace UnityToolbarExtender
-{ 
+{
+
+    public class DrawFloatLabel
+    {
+        System.Action<float> onSliderDraw;
+        public float value;
+        public void Draw()
+        {
+            GUILayout.FlexibleSpace();
+            value = GUILayout.HorizontalSlider(0, 0, 100);
+            onSliderDraw?.Invoke(value);
+        }
+    }
 	[InitializeOnLoad]
 	public class DrawToolbar
 	{
-		static DrawToolbar()
+        private static DrawFloatLabel timeScaleSlider = new DrawFloatLabel();
+        static DrawToolbar()
 		{
+            EditorApplication.playModeStateChanged += OnPlayModeChanged;
             ToolbarExtender.LeftToolbarGUI.Add(OnLeftUI);
-            ToolbarExtender.RightToolbarGUI.Add(OnRightUI);
+            ToolbarExtender.LeftToolbarGUI.Add(timeScaleSlider.Draw);
+            ToolbarExtender.RightToolbarGUI.Add(OnRightUI); 
         }
 
+
+        static void OnPlayModeChanged(PlayModeStateChange obj)
+        {
+                EditorWindow.FocusWindowIfItsOpen<SceneView>();
+                if (obj == PlayModeStateChange.EnteredPlayMode)
+                {
+                    ToolbarExtender.LeftToolbarGUI.Remove(OnLeftUI);
+                    ToolbarExtender.RightToolbarGUI.Remove(OnRightUI);
+                }
+                if (obj == PlayModeStateChange.EnteredEditMode)
+                {
+                    ToolbarExtender.RightToolbarGUI.Add(OnRightUI);
+                    ToolbarExtender.LeftToolbarGUI.Add(OnLeftUI);
+                }
+        }
 
         static void DrawButton(string title, string tooltip, GUIStyle guiStyle, System.Action onClick)
         {
@@ -38,7 +68,8 @@ namespace UnityToolbarExtender
             DrawButton("D", "TOOLTIP", GUIStyles.commandButtonStyle, () => {
                 Debug.Log(" Your Click DButton. [RIGHT]");
             }); 
-            
+
+      
         }
 		static void OnLeftUI()
 		{
