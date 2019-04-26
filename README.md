@@ -1,5 +1,9 @@
 # UnityMemberGenerator
  This is Component Member-Variable Auto Generator.
+ I don't want to write annoying code :(
+ so i made member variable generator :)
+ 
+
   * support auto- region 
   * support auto- serialize attribute
   * support access modifier public.
