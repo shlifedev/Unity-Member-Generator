@@ -35,7 +35,7 @@ namespace UnityToolbarExtender
             DrawButton("C", "TOOLTIP", GUIStyles.commandButtonStyle, () => {
                 Debug.Log(" Your Click C Button. [RIGHT]");
             });
-            DrawButton("D", "TOOLTIP", GUIStyles.GetCustomStyle(), () => {
+            DrawButton("D", "TOOLTIP", GUIStyles.commandButtonStyle, () => {
                 Debug.Log(" Your Click DButton. [RIGHT]");
             }); 
             
@@ -53,7 +53,7 @@ namespace UnityToolbarExtender
             DrawButton("E", "TOOLTIP", GUIStyles.commandButtonStyle, () => {
                 Debug.Log(" Your Click E Button. [LEFT]");
             });
-            DrawButton("R", "TOOLTIP", GUIStyles.GetCustomStyle(), () => {
+            DrawButton("R", "TOOLTIP", GUIStyles.commandButtonStyle, () => {
                 Debug.Log(" Your Click R Button. [LEFT]");
             });
 

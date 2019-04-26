@@ -31,7 +31,12 @@ namespace UnityToolbarExtender
             }
             else
             {
+#if UNITY_2019
+                mToolIconsCount = 7;
+#else
                 mToolIconsCount = 6;
+#endif
+
             }
             m_toolCount = toolIcons != null ? mToolIconsCount : 6 ;
 
