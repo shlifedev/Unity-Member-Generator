@@ -47,15 +47,15 @@ namespace UnityToolbarExtender
                 EditorWindow.FocusWindowIfItsOpen<SceneView>();
                 if (obj == PlayModeStateChange.EnteredPlayMode)
                 {
-                    ToolbarExtender.LeftToolbarGUI.Remove(OnLeftUI);
-                    ToolbarExtender.RightToolbarGUI.Remove(OnRightUI);
-                //    ToolbarExtender.LeftToolbarGUI.Remove(timeScaleSlider.Draw);
+                 //    ToolbarExtender.LeftToolbarGUI.Remove(OnLeftUI);
+                 //    ToolbarExtender.RightToolbarGUI.Remove(OnRightUI);
+                 //    ToolbarExtender.LeftToolbarGUI.Remove(timeScaleSlider.Draw);
                 }
                 if (obj == PlayModeStateChange.EnteredEditMode)
                 {
-                    ToolbarExtender.RightToolbarGUI.Add(OnRightUI);
-                    ToolbarExtender.LeftToolbarGUI.Add(OnLeftUI);
-                  //  ToolbarExtender.LeftToolbarGUI.Add(timeScaleSlider.Draw);
+                  //   ToolbarExtender.RightToolbarGUI.Add(OnRightUI);
+                  //   ToolbarExtender.LeftToolbarGUI.Add(OnLeftUI);
+                  //   ToolbarExtender.LeftToolbarGUI.Add(timeScaleSlider.Draw);
                 }
         }
 
