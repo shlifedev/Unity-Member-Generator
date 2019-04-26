@@ -95,12 +95,11 @@ namespace UnityToolbarExtender
 			leftRect.height = 24;
 			rightRect.y = 5;
 			rightRect.height = 24;
-
-
-            GUI.Box(leftRect, "");
-            GUI.Box(rightRect, "");
+             
+            
+            //Draw Left Elements.
             if (leftRect.width > 0)
-			{
+			{ 
 				GUILayout.BeginArea(leftRect);
 				GUILayout.BeginHorizontal();
 				foreach (var handler in LeftToolbarGUI)
@@ -112,7 +111,8 @@ namespace UnityToolbarExtender
 				GUILayout.EndArea();
 			}
 
-			if (rightRect.width > 0)
+            //Draw Right Elements.
+            if (rightRect.width > 0)
 			{
 				GUILayout.BeginArea(rightRect);
 				GUILayout.BeginHorizontal();
