@@ -1,4 +1,4 @@
-# UnityUGUIMemberGenerator
+# UnityMemberGenerator
  영어 Readme 작성필요, 리포지토리 명 변경필요 (이젠 UGUI에 국한되지 않음)
  ###
  This is Component Member-Variable Auto Generator.
