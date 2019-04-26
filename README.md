@@ -1,7 +1,7 @@
 # UnityMemberGenerator
- This is Component Member-Variable Auto Generator.
- I don't want to write annoying code :(
- so i made member variable generator :)
+  This is Component Member-Variable Auto Generator.
+  I don't want to write annoying code :(
+  so i made member variable generator :)
  
 
   * support auto- region 
