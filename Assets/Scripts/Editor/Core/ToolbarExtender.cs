@@ -24,7 +24,7 @@ namespace UnityToolbarExtender
 				BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
             
             var arr =  ((Array) toolIcons.GetValue(null));
-            int mToolIconsCount = 0;
+            int mToolIconsCount = 7;
             if (arr != null)
             {
                 mToolIconsCount = arr.Length;
