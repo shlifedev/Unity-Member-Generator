@@ -5,9 +5,7 @@
   * support access modifier public.
   * support customize generate type. 
   
- ## 설명
- 
-
+ ## How to use it?
 
 * You can make auto-generate code as next.
    Just Right-click the game-object you want to be automatically member variable create.
