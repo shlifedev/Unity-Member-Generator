@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace UnityToolbarExtender.Examples
+namespace UnityToolbarExtender
 {
 	[InitializeOnLoad]
 	public static class DrawToggleToolbar

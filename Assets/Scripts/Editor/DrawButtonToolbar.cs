@@ -2,43 +2,9 @@
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace UnityToolbarExtender.Examples
+namespace UnityToolbarExtender
 {
-	static class GUIStyles
-	{
-        public static readonly GUIStyle commandButtonStyle;
-        public static readonly GUIStyle middleSize;
-        public static readonly GUIStyle largeSize;
-
-
-        static GUIStyles()
-		{
-            commandButtonStyle = new GUIStyle("Command")
-            {
-                fixedWidth = 50,
-				fontSize = 11,
-				alignment = TextAnchor.MiddleCenter,
-				imagePosition = ImagePosition.ImageAbove,
-				fontStyle = FontStyle.Normal
-			};
-            middleSize = new GUIStyle("Command")
-            {
-                fixedWidth = 70,
-                fontSize = 11,
-                alignment = TextAnchor.MiddleCenter,
-                imagePosition = ImagePosition.ImageAbove,
-                fontStyle = FontStyle.Normal
-            };
-            largeSize = new GUIStyle("Command")
-            {
-                fixedWidth = 100,
-                fontSize = 11,
-                alignment = TextAnchor.MiddleCenter,
-                imagePosition = ImagePosition.ImageAbove,
-                fontStyle = FontStyle.Normal
-            };
-        }
-	}
+	 
 
 	[InitializeOnLoad]
 	public class DrawButtonToolbar
@@ -49,21 +15,30 @@ namespace UnityToolbarExtender.Examples
             ToolbarExtender.RightToolbarGUI.Add(OnRightUI);
         }
 
+
+        static void DrawButton(string title, string tooltip, GUIStyle guiStyle, System.Action onClick)
+        {
+            if (GUILayout.Button(new GUIContent(title, tooltip), guiStyle))
+            {
+                onClick?.Invoke();
+            }
+        }
         static void OnRightUI()
         {
             GUILayout.FlexibleSpace();
-            if (GUILayout.Button(new GUIContent("Update", "Start Scene 2"), GUIStyles.largeSize))
-            {
+
+            DrawButton("A", "TOOLTIP", GUIStyles.middleSize, () => {
                 Debug.Log("gg");
-            }
-            if (GUILayout.Button(new GUIContent("Update", "Start Scene 2"), GUIStyles.middleSize))
-            {
+            });
+            DrawButton("B", "TOOLTIP", GUIStyles.largeSize, () => {
                 Debug.Log("gg");
-            }
-            if (GUILayout.Button(new GUIContent("Update", "Start Scene 2"), GUIStyles.largeSize))
-            {
+            });
+            DrawButton("C", "TOOLTIP", GUIStyles.commandButtonStyle, () => {
                 Debug.Log("gg");
-            }
+            });
+            DrawButton("D", "TOOLTIP", GUIStyles.GetCustomStyle(), () => {
+                Debug.Log("gg");
+            }); 
             
         }
 		static void OnLeftUI()
