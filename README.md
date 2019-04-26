@@ -9,7 +9,9 @@
 
 * You can make auto-generate code as next.
    Just Right-click the game-object you want to be automatically member variable create.
-   warning!! The code will be generated if you registered namespace!!)
+   
+   (warning!! The code will be generated if you registered namespace!!)
+   
 ![Instruction-1](https://github.com/shlifedev/UnityUGUIMemberGenerator/blob/master/ScreenShots/inst1.gif)
 
 
