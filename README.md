@@ -30,8 +30,9 @@
   - Save Generator Option
   - Better Inspector Design.
   - Tree-Gen System.
-  - if selected transform has Button(Image children text) then make space line. (for readability improve)
-  - variable prefix character
+  - If selected transform has Button(Image children text) then make space line. (for readability improve)
+  - Variable prefix character
+  - Attribute Enum BitMask
   
   (2019-04-26 Done)
   * user custom type (text, image, spriterenderer, gameobject .. etc)
