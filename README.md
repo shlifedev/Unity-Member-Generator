@@ -8,7 +8,7 @@
   * support auto- region 
   * support auto- serialize attribute
   * support access modifier
-  * support custom type. 
+  * support customize generate type. 
   
  ## How to use it?
 
