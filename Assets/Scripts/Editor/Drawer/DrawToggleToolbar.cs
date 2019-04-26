@@ -25,9 +25,7 @@ namespace UnityToolbarExtender
 			EditorApplication.pauseStateChanged += OnPauseChanged;
 
 
-            ToolbarExtender.LeftToolbarGUI.Add(OnToolbarGUI);
-            ToolbarExtender.RightToolbarGUI.Add(OnToolbarGUI);
-
+            ToolbarExtender.LeftToolbarGUI.Add(OnToolbarGUI); 
         }
 
         static void OnPauseChanged(PauseState obj)
@@ -49,8 +47,7 @@ namespace UnityToolbarExtender
 
         static void OnToolbarGUI()
         {
-            var tex = EditorGUIUtility.IconContent(@"UnityEditor.SceneView").image;
-
+            var tex = EditorGUIUtility.IconContent(@"UnityEditor.SceneView").image; 
             GUI.changed = false;
 
             GUILayout.Toggle(m_enabled, new GUIContent(null, tex, "Focus SceneView when entering play mode"), "Command");

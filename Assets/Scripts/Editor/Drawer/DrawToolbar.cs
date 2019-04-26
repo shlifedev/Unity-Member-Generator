@@ -3,13 +3,11 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace UnityToolbarExtender
-{
-	 
-
+{ 
 	[InitializeOnLoad]
-	public class DrawButtonToolbar
+	public class DrawToolbar
 	{
-		static DrawButtonToolbar()
+		static DrawToolbar()
 		{
             ToolbarExtender.LeftToolbarGUI.Add(OnLeftUI);
             ToolbarExtender.RightToolbarGUI.Add(OnRightUI);
@@ -23,21 +21,22 @@ namespace UnityToolbarExtender
                 onClick?.Invoke();
             }
         }
+
         static void OnRightUI()
         {
             GUILayout.FlexibleSpace();
 
             DrawButton("A", "TOOLTIP", GUIStyles.middleSize, () => {
-                Debug.Log("gg");
+                Debug.Log(" Your Click A Button. [RIGHT]");
             });
             DrawButton("B", "TOOLTIP", GUIStyles.largeSize, () => {
-                Debug.Log("gg");
+                Debug.Log(" Your Click B Button. [RIGHT]");
             });
             DrawButton("C", "TOOLTIP", GUIStyles.commandButtonStyle, () => {
-                Debug.Log("gg");
+                Debug.Log(" Your Click C Button. [RIGHT]");
             });
             DrawButton("D", "TOOLTIP", GUIStyles.GetCustomStyle(), () => {
-                Debug.Log("gg");
+                Debug.Log(" Your Click DButton. [RIGHT]");
             }); 
             
         }
@@ -45,18 +44,18 @@ namespace UnityToolbarExtender
 		{
 			GUILayout.FlexibleSpace();
 
-			if(GUILayout.Button(new GUIContent("1", "Start Scene 1"), GUIStyles.commandButtonStyle))
-			{
-                Debug.Log("gg");
-            } 
-            if (GUILayout.Button(new GUIContent("2", "Start Scene 2"), GUIStyles.commandButtonStyle))
-            {
-                Debug.Log("gg");
-            }
-            if (GUILayout.Button(new GUIContent("Update", "Start Scene 2"), GUIStyles.commandButtonStyle))
-            {
-                Debug.Log("gg");
-            }
+            DrawButton("Q", "TOOLTIP", GUIStyles.middleSize, () => {
+                Debug.Log(" Your Click Q Button. [LEFT]");
+            });
+            DrawButton("W", "TOOLTIP", GUIStyles.largeSize, () => {
+                Debug.Log(" Your Click W Button. [LEFT]");
+            });
+            DrawButton("E", "TOOLTIP", GUIStyles.commandButtonStyle, () => {
+                Debug.Log(" Your Click E Button. [LEFT]");
+            });
+            DrawButton("R", "TOOLTIP", GUIStyles.GetCustomStyle(), () => {
+                Debug.Log(" Your Click R Button. [LEFT]");
+            });
 
         }
 	}
