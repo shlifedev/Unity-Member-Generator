@@ -15,14 +15,17 @@ namespace UnityToolbarExtender
 		public static readonly List<Action> LeftToolbarGUI = new List<Action>();
 		public static readonly List<Action> RightToolbarGUI = new List<Action>();
 
-		static ToolbarExtender()
-		{
-            //Toolbar 어셈블리를 강제로 가져옴 (internal class Toolbar : GUIView)
-            Type toolbarType = typeof(Editor).Assembly.GetType("UnityEditor.Toolbar");
-            //toolIcons 필드를 강제로 가져옴 (private static GUIContent[] s_ShownToolIcons;)
+        static ToolbarExtender()
+        {
+            ToolInit();
+        }
+
+        private static void ToolInit()
+        { 
+            Type toolbarType = typeof(Editor).Assembly.GetType("UnityEditor.Toolbar"); 
             FieldInfo toolIcons = toolbarType.GetField("s_ShownToolIcons",
-				BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
-            
+                BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
+
             var arr =  ((Array) toolIcons.GetValue(null));
             int mToolIconsCount = 7;
             if (arr != null)
@@ -38,13 +41,13 @@ namespace UnityToolbarExtender
 #endif
 
             }
-            m_toolCount = toolIcons != null ? mToolIconsCount : 6 ;
+            m_toolCount = toolIcons != null ? mToolIconsCount : 6; 
+            //Add OnToolbarGUI Update
+            ToolbarCallback.OnToolbarGUI -= OnGUI;
+            ToolbarCallback.OnToolbarGUI += OnGUI;
+        }
 
-			ToolbarCallback.OnToolbarGUI -= OnGUI;
-			ToolbarCallback.OnToolbarGUI += OnGUI;
-		}
-
-		static void OnGUI()
+		private static void OnGUI()
 		{
 			if (m_commandStyle == null)
 			{
@@ -53,7 +56,7 @@ namespace UnityToolbarExtender
 			var screenWidth = EditorGUIUtility.currentViewWidth;
 
 			// 플레이버튼의 위치 (400은 플레이버튼 영역 rect가 차지하는 가로사이즈 같음)
-			float playButtonsPosition = (screenWidth - 400) / 2; 
+			float playButtonsPosition = (screenWidth - 140) / 2; 
 			Rect leftRect = new Rect(0, 0, screenWidth, Screen.height);
 
             ///// 이곳은 왼쪽 부분에 있는 유니티 기본 GUI들 사이즈를 계산해서 그릴 요소들을 밀어주는 곳인듯 함 /////
@@ -80,6 +83,7 @@ namespace UnityToolbarExtender
 			rightRect.xMax -= 10; // Spacing between cloud and collab
 			rightRect.xMax -= 78; // Colab
 
+        
 			// Add spacing around existing controls
 			leftRect.xMin += 10;
 			leftRect.xMax -= 10;
@@ -92,7 +96,10 @@ namespace UnityToolbarExtender
 			rightRect.y = 5;
 			rightRect.height = 24;
 
-			if (leftRect.width > 0)
+
+            GUI.Box(leftRect, "");
+            GUI.Box(rightRect, "");
+            if (leftRect.width > 0)
 			{
 				GUILayout.BeginArea(leftRect);
 				GUILayout.BeginHorizontal();
