@@ -1,14 +1,10 @@
 # UnityUGUIMemberGenerator
-
  영어 Readme 작성필요
- 
- English Readme not ready.
- 
  ###
- This is UI Member-Variable Auto Generator.
+ This is Component Member-Variable Auto Generator.
   
- UI의 멤버 변수들을 자동으로 생성해주며 일반적으로 'MaskableGraphic'을 상속받는 
- UI컴퍼넌트를 대상으로 작동합니다. 
+ 멤버 변수들을 자동으로 생성해주며 일반적으로 'MaskableGraphic'을 상속받는 
+ 컴퍼넌트를 대상으로 작동합니다. 
  
  ## 설명
  
