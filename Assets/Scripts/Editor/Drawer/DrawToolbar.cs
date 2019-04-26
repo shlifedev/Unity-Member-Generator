@@ -5,26 +5,39 @@ using UnityEngine;
 namespace UnityToolbarExtender
 {
 
-    public class DrawFloatLabel
-    {
-        System.Action<float> onSliderDraw;
-        public float value;
+    public class TimeScaleSlider
+    { 
+        public string value = "1";
         public void Draw()
         {
+            if (string.IsNullOrEmpty(value)) { value = "1"; }
+
+            float outerValue = 1;
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("TimeScale:");
             GUILayout.FlexibleSpace();
-            value = GUILayout.HorizontalSlider(0, 0, 100);
-            onSliderDraw?.Invoke(value);
+            value = GUILayout.TextField(value); 
+            GUILayout.EndHorizontal();
+            if (float.TryParse(value, out outerValue) == false)
+            {
+                value = null;
+            }
+
+            if(outerValue != -1)
+            Time.timeScale = outerValue;
         }
     }
-	[InitializeOnLoad]
-	public class DrawToolbar
-	{
-        private static DrawFloatLabel timeScaleSlider = new DrawFloatLabel();
+    [InitializeOnLoad]
+    public class DrawToolbar
+    {
+        private static TimeScaleSlider timeScaleSlider = new TimeScaleSlider();
         static DrawToolbar()
 		{
+            Debug.Log("A");
             EditorApplication.playModeStateChanged += OnPlayModeChanged;
             ToolbarExtender.LeftToolbarGUI.Add(OnLeftUI);
-            ToolbarExtender.LeftToolbarGUI.Add(timeScaleSlider.Draw);
+          //  ToolbarExtender.LeftToolbarGUI.Add(timeScaleSlider.Draw);
             ToolbarExtender.RightToolbarGUI.Add(OnRightUI); 
         }
 
@@ -36,11 +49,13 @@ namespace UnityToolbarExtender
                 {
                     ToolbarExtender.LeftToolbarGUI.Remove(OnLeftUI);
                     ToolbarExtender.RightToolbarGUI.Remove(OnRightUI);
+                //    ToolbarExtender.LeftToolbarGUI.Remove(timeScaleSlider.Draw);
                 }
                 if (obj == PlayModeStateChange.EnteredEditMode)
                 {
                     ToolbarExtender.RightToolbarGUI.Add(OnRightUI);
                     ToolbarExtender.LeftToolbarGUI.Add(OnLeftUI);
+                  //  ToolbarExtender.LeftToolbarGUI.Add(timeScaleSlider.Draw);
                 }
         }
 
