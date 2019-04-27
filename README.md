@@ -1,10 +1,6 @@
 # UnityMemberGenerator
-  This is Component Member-Variable Auto Generator.
+  This is Component Member-Variable Auto Generator.   
   
-  I don't want to write annoying code :(
-  so i made member variable generator :)
- 
-
   * support auto- region 
   * support auto- serialize attribute
   * support access modifier
@@ -25,7 +21,7 @@
 * Auto generate serialize field attribute, access midifier 
 ![Instruction-1](https://github.com/shlifedev/UnityUGUIMemberGenerator/blob/master/ScreenShots/inst3.gif)
 
-
+ 
  ## Need Update  
   - Serialize Field add prefix '_' , and start character Tolower.
   - Add Property Generator (Get/Set option)
