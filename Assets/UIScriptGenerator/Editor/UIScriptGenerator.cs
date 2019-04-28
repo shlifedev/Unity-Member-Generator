@@ -105,8 +105,9 @@ namespace Hamster.Unity.Utility
                     string ret = null;
 
                     if(UIScriptGenMemberType.IsValid(component))
-                    {
-                        ret = Write(UIScriptGeneratorEditor.AttrStr + UIScriptGeneratorEditor.AplStr, component.GetType().Name, component.name);
+                    { 
+                        string componentName = (UIScriptGeneratorEditor.WriteComponentName == false) ? component.name : component.GetType().Name + "_" + component.name;
+                        ret = Write(UIScriptGeneratorEditor.AttrStr + UIScriptGeneratorEditor.AplStr, component.GetType().Name, componentName);
                     } 
                     if (ret != null)
                         builder.AppendLine(ret);

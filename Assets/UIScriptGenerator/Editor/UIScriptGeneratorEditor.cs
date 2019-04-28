@@ -14,10 +14,11 @@ namespace Hamster.Unity.Utility
         public enum AccessPermissionLevel { None, PUBLIC, PRIVATE };
         public enum Attribute { None, SerializeField };
         private static bool writeRegion = false;
+        private static bool writeComponentName = false;
         private static string region = "SetRegionName";
 
-        private static AccessPermissionLevel apl;
-        private static Attribute attr;
+        private static AccessPermissionLevel apl = AccessPermissionLevel.None;
+        private static Attribute attr = Attribute.SerializeField;
         private static UIScriptGeneratorEditor m_window = null;
         public static AccessPermissionLevel Apl { get => apl; }
          
@@ -47,6 +48,7 @@ namespace Hamster.Unity.Utility
         public static bool WriteRegion { get => writeRegion; set => writeRegion = value; }
         public static string Region { get => region; set => region = value; }
         public static UIScriptGeneratorEditor Window { get => m_window; set => m_window = value; }
+        public static bool WriteComponentName { get => writeComponentName; set => writeComponentName = value; }
 
         [MenuItem("UIScriptGeneratorEditor/Code")]
         public static void OpenWindow()
@@ -71,6 +73,7 @@ namespace Hamster.Unity.Utility
 
             Region = EditorGUILayout.TextField(Region);
             WriteRegion = GUILayout.Toggle(WriteRegion, "Use Region");
+            WriteComponentName = GUILayout.Toggle(WriteComponentName, "Include Component Name");
             apl = (AccessPermissionLevel)EditorGUILayout.EnumPopup("AccessPermissionLevel", Apl);
             attr = (Attribute)EditorGUILayout.EnumPopup("Attribute", Attr);
             GUI.contentColor = Color.red;

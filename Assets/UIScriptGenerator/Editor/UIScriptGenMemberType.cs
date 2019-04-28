@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 namespace Hamster.Unity.Utility
 {
     public class UIScriptGenMemberType
-    {
- 
-        public static List<System.Type> typeList = new List<System.Type>(); 
-
+    { 
+        public static List<System.Type> typeList = new List<System.Type>();  
         public static bool IsValid(UnityEngine.Component component)
-        {
-            
+        { 
             System.Type compoType =  component.GetType();
             for (int i = 0; i < typeList.Count; i++)
             {
@@ -21,8 +18,7 @@ namespace Hamster.Unity.Utility
                 { 
                     return true;
                 }
-            }
-
+            } 
             return false;
         }
         public static void Add (System.Type type)
