@@ -56,10 +56,43 @@ namespace Hamster.Unity.Utility
             if (Window == null)
                 Window = EditorWindow.GetWindow(typeof(UIScriptGeneratorEditor)) as UIScriptGeneratorEditor;
             Window.titleContent = new GUIContent("github => shlifedev", "Make by.CheeseAllergyHamster ");
-            Window.Show();
-
+            Window.Show(); 
         }
 
+
+        private void DrawButtons()
+        {
+
+            if (GUILayout.Button("Clear")) { reflectionFields.Clear(); }
+
+            GUILayout.BeginHorizontal();
+
+            GUILayout.BeginVertical();
+            GUILayout.Label("UI Components");
+            if (GUILayout.Button("UI.Image")) { string type = "UnityEngine.UI.Image"; if (reflectionFields.Contains(type) == false) reflectionFields.Add(type); }
+            if (GUILayout.Button("UI.Text")) { string type = "UnityEngine.UI.Text"; if (reflectionFields.Contains(type) == false) reflectionFields.Add(type); }
+            if (GUILayout.Button("UI.ScrollRect")) { string type = "UnityEngine.UI.ScrollRect"; if (reflectionFields.Contains(type) == false) reflectionFields.Add(type); }
+            if (GUILayout.Button("UI.Button")) { string type = "UnityEngine.UI.Button"; if (reflectionFields.Contains(type) == false) reflectionFields.Add(type); }
+            GUILayout.EndVertical();
+
+
+            GUILayout.BeginVertical();
+            GUILayout.Label("UnityEngine Components");
+            if (GUILayout.Button("Transform")) { string type = "UnityEngine.Transform"; if (reflectionFields.Contains(type) == false) reflectionFields.Add(type); }
+            if (GUILayout.Button("RectTransform")) { string type = "UnityEngine.RectTransform"; if (reflectionFields.Contains(type) == false) reflectionFields.Add(type); }
+            if (GUILayout.Button("SpriteRenderer")) { string type = "UnityEngine.SpriteRenderer"; if (reflectionFields.Contains(type) == false) reflectionFields.Add(type); }
+            GUILayout.EndVertical();
+
+            GUILayout.BeginVertical();
+            GUILayout.Label("Preset");
+            if (GUILayout.Button("UISet")) { reflectionFields.Clear(); reflectionFields.Add("UnityEngine.UI.Image"); reflectionFields.Add("UnityEngine.UI.Text"); };
+            if (GUILayout.Button("UISet2")) { reflectionFields.Clear(); reflectionFields.Add("UnityEngine.UI.Image"); reflectionFields.Add("UnityEngine.UI.Text"); reflectionFields.Add("UnityEngine.UI.Button"); reflectionFields.Add("UnityEngine.UI.GridLayoutGroup"); };
+            if (GUILayout.Button("UISet3")) { reflectionFields.Clear(); reflectionFields.Add("UnityEngine.UI.Image"); reflectionFields.Add("UnityEngine.UI.Text"); reflectionFields.Add("UnityEngine.UI.Button"); reflectionFields.Add("UnityEngine.UI.GridLayoutGroup"); reflectionFields.Add("UnityEngine.UI.ScrollRect"); };
+            if (GUILayout.Button("Ebichu")) { reflectionFields.Clear(); reflectionFields.Add("https://github.com/shlifedev/UnityUGUIMemberGenerator"); };
+            GUILayout.EndVertical();
+
+            GUILayout.EndHorizontal();
+        }
         private void DrawSourceCodeWindow()
         {
             GUI.contentColor = Color.white;
@@ -99,33 +132,13 @@ namespace Hamster.Unity.Utility
                  
                 }
             }
-            if (GUILayout.Button("Clear")) { reflectionFields.Clear(); }
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Button("UI.Image")) { string type = "UnityEngine.UI.Image"; if (reflectionFields.Contains(type) == false) reflectionFields.Add(type); }
-            if (GUILayout.Button("UI.Text")) { string type = "UnityEngine.UI.Text"; if (reflectionFields.Contains(type) == false) reflectionFields.Add(type); }
-            if (GUILayout.Button("UI.ScrollRect")) { string type = "UnityEngine.UI.ScrollRect"; if (reflectionFields.Contains(type) == false) reflectionFields.Add(type); }
-            if (GUILayout.Button("UI.Button")) { string type = "UnityEngine.UI.Button"; if (reflectionFields.Contains(type) == false) reflectionFields.Add(type); }
-            GUILayout.EndHorizontal(); 
-            GUILayout.BeginHorizontal(); 
-            if (GUILayout.Button("Transform")) { string type = "UnityEngine.Transform"; if (reflectionFields.Contains(type) == false) reflectionFields.Add(type); }
-            if (GUILayout.Button("RectTransform")) { string type = "UnityEngine.RectTransform"; if (reflectionFields.Contains(type) == false) reflectionFields.Add(type); } 
-            if (GUILayout.Button("SpriteRenderer")) { string type = "UnityEngine.SpriteRenderer"; if (reflectionFields.Contains(type) == false) reflectionFields.Add(type); }
-            GUILayout.EndHorizontal();
-
-            GUILayout.BeginHorizontal();
-
-        
-            if (GUILayout.Button("UISet")) { reflectionFields.Clear(); reflectionFields.Add("UnityEngine.UI.Image"); reflectionFields.Add("UnityEngine.UI.Text"); };
-            if (GUILayout.Button("UISet2")) { reflectionFields.Clear(); reflectionFields.Add("UnityEngine.UI.Image"); reflectionFields.Add("UnityEngine.UI.Text"); reflectionFields.Add("UnityEngine.UI.Button"); reflectionFields.Add("UnityEngine.UI.GridLayoutGroup"); };
-            if (GUILayout.Button("UISet3")) { reflectionFields.Clear(); reflectionFields.Add("UnityEngine.UI.Image"); reflectionFields.Add("UnityEngine.UI.Text"); reflectionFields.Add("UnityEngine.UI.Button"); reflectionFields.Add("UnityEngine.UI.GridLayoutGroup"); reflectionFields.Add("UnityEngine.UI.ScrollRect"); }; 
-            if (GUILayout.Button("Ebichu")) { reflectionFields.Clear(); reflectionFields.Add("https://github.com/shlifedev/UnityUGUIMemberGenerator"); };
-
-            GUILayout.EndHorizontal();
+ 
 
         }
         private void OnGUI()
         {
             DrawSourceCodeWindow();
+            DrawButtons();
         }
     }
 }
