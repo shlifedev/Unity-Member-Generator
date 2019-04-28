@@ -11,15 +11,19 @@
 * You can make auto-generate code as next.
    Just Right-click the game-object you want to be automatically member variable create.
  
-![Instruction-1](https://github.com/shlifedev/UnityUGUIMemberGenerator/blob/master/ScreenShots/inst1.gif)
+![Instruction-1](https://github.com/shlifedev/UnityUGUIMemberGenerator/blob/master/ScreenShots/01.gif)
 
 
-* Auto generate region area
-![Instruction-1](https://github.com/shlifedev/UnityUGUIMemberGenerator/blob/master/ScreenShots/inst2.gif)
+* Auto generate region area / prefix component name (option)
+![Instruction-1](https://github.com/shlifedev/UnityUGUIMemberGenerator/blob/master/ScreenShots/02.gif)
 
 
-* Auto generate serialize field attribute, access midifier 
-![Instruction-1](https://github.com/shlifedev/UnityUGUIMemberGenerator/blob/master/ScreenShots/inst3.gif)
+* you can component filter
+![Instruction-1](https://github.com/shlifedev/UnityUGUIMemberGenerator/blob/master/ScreenShots/03.gif)
+
+
+* Auto generate public/private keyword. 
+![Instruction-1](https://github.com/shlifedev/UnityUGUIMemberGenerator/blob/master/ScreenShots/04.gif)
 
  
  ## Need Update  
