@@ -1,10 +1,11 @@
 # UnityMemberGenerator
-  This is Component Member-Variable Auto Generator.   
+  This is Component Member-Variable Auto Generator.
   
-  * support auto- region 
-  * support auto- serialize attribute
+  * support auto-region 
+  * support auto-serialize attribute
   * support access modifier
   * support customize generate type. 
+  
   
  ## How to use it?
 
