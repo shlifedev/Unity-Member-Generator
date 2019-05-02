@@ -39,7 +39,7 @@ currently, if you need add new component filter button please modify this script
   - If selected transform has Button(Image children text) then make space line. (for readability improve)
   - Variable prefix character
   - Attribute Enum BitMask
-  
+  - Also Root Component Include Support
   (2019-04-26 Done)
   * user custom type (text, image, spriterenderer, gameobject .. etc)
    
