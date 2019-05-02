@@ -20,6 +20,8 @@
 
 
 * you can component filter
+currently, if you need add new component filter button please modify this script 
+(of course, i will add 'component filter button customize feature')
 ![Instruction-1](https://github.com/shlifedev/UnityUGUIMemberGenerator/blob/master/ScreenShots/03.gif)
 
 
